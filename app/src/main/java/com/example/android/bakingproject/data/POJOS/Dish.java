@@ -5,7 +5,7 @@ import java.util.List;
 public class Dish {
 
     private int id;
-    private String name;
+    private String name;//slaw
     private List<Ingredients>ingredients;
     private List<Steps>steps;
     private String image;
