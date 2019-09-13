@@ -11,7 +11,7 @@ public class Dish {
     private String image;
     private int serving;
 
-    public int getServing() {
+    public int getServing() {//axxx
         return serving;
     }
 
