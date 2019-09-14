@@ -1,6 +1,8 @@
 package com.example.android.bakingproject.ui.dishList;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.data.POJOS.Dish;
+import com.example.android.bakingproject.data.POJOS.Ingredients;
+import com.example.android.bakingproject.ui.ingredeints.IngredientsActivity;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -21,9 +26,10 @@ import timber.log.Timber;
 
 public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishListViewHolder> {
     private List<Dish> mDishes;
-
-    public DishListAdapter(List<Dish> dishes) {
+    private Context mContext;
+    public DishListAdapter(List<Dish> dishes, Context context) {
         mDishes = dishes;
+        mContext = context;
 
     }
 
@@ -59,19 +65,25 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
         return mDishes.size();
     }
 
-    class DishListViewHolder extends RecyclerView.ViewHolder  {
+    protected class DishListViewHolder extends RecyclerView.ViewHolder  {
         private ImageView mDishImageView;
         private TextView mDishNameTextView;
 
-        public DishListViewHolder(@NonNull View itemView) {
+        private DishListViewHolder(@NonNull View itemView) {
             super(itemView);
             mDishImageView = itemView.findViewById(R.id.food_view);
             mDishNameTextView = itemView.findViewById(R.id.textView);
 
-            itemView.setOnClickListener((view)-> Timber.d("SLAW"));
+            itemView.setOnClickListener(this::startIngredientActivity);
 
         }
 
+        private void startIngredientActivity(View view) {
+            Intent intent = new Intent(mContext, IngredientsActivity.class);
+            Dish dish = mDishes.get(getAdapterPosition());
+            intent.putExtra(Intent.EXTRA_INTENT,new Gson().toJson(dish));
+            mContext.startActivity(intent);
+        }
     }
 
 

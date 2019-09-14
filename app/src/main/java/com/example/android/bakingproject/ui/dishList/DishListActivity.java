@@ -31,7 +31,7 @@ public class DishListActivity extends AppCompatActivity {
         DishListViewModel dishListViewModel = ViewModelProviders.of(this).get(DishListViewModel.class);
         dishListViewModel.getDishes()
                 .observe(this,dishes ->{
-                    mRecyclerView.setAdapter(new DishListAdapter(dishes));
+                    mRecyclerView.setAdapter(new DishListAdapter(dishes,this));
                     Timber.d(dishes.get(1).getImage() + "  IMAGE");
                 });
     }

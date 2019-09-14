@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".ui.dishList.DishListActivity">
+    tools:context=".ui.ingredeints.IngredientsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dish_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:id="@+id/ingredents_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

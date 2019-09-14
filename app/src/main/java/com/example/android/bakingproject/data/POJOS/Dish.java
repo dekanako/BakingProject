@@ -5,13 +5,13 @@ import java.util.List;
 public class Dish {
 
     private int id;
-    private String name;//slaw
+    private String name;
     private List<Ingredients>ingredients;
     private List<Steps>steps;
     private String image;
     private int serving;
 
-    public int getServing() {//axxxx
+    public int getServing() {
         return serving;
     }
 
