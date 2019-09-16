@@ -15,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.data.POJOS.Dish;
-import com.example.android.bakingproject.data.POJOS.Ingredients;
-import com.example.android.bakingproject.ui.ingredeints.IngredientsActivity;
+import com.example.android.bakingproject.ui.hosting.HostingActivity;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -79,7 +78,7 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
         }
 
         private void startIngredientActivity(View view) {
-            Intent intent = new Intent(mContext, IngredientsActivity.class);
+            Intent intent = new Intent(mContext, HostingActivity.class);
             Dish dish = mDishes.get(getAdapterPosition());
             intent.putExtra(Intent.EXTRA_INTENT,new Gson().toJson(dish));
             mContext.startActivity(intent);

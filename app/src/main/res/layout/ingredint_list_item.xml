@@ -1,85 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraint"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_add_circle_outline_black_24dp" />
+        app:srcCompat="@drawable/circle" />
 
     <TextView
         android:id="@+id/mesure_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="50TBLSP"
-        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton1"
+        app:layout_constraintStart_toStartOf="@+id/imageButton1"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton1"
+        tools:text="CUP" />
+
+    <TextView
+        android:id="@+id/item_text_view"
+        android:layout_width="319dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="sans-serif"
+        android:textAlignment="textStart"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/mesure_text_view"
+        app:layout_constraintStart_toEndOf="@+id/imageButton1"
+        app:layout_constraintTop_toTopOf="@+id/imageButton1"
+        tools:layout_conversion_absoluteHeight="22dp"
+        tools:layout_conversion_absoluteWidth="323dp"
+        tools:text="mozarilla" />
+
+    <TextView
+        android:id="@+id/quantitiy"
+        style="@style/Base.TextAppearance.AppCompat.Display4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="@+id/cardView2" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="232dp"
-        android:layout_height="55dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/imageButton">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/item_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fruit"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.14" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.78" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton1"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton1"
+        app:layout_constraintStart_toStartOf="@+id/imageButton1"
+        app:layout_constraintTop_toTopOf="@+id/imageButton1"
+        tools:text="5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

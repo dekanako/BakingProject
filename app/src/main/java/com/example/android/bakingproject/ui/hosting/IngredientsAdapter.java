@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.ui.ingredeints;
+package com.example.android.bakingproject.ui.hosting;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,14 +31,12 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     @Override
     public void onBindViewHolder(@NonNull IngredientsViewHolder holder, int position) {
 
-        holder.mMeasuringUnitView.setText(getMeasureWithUnit(mIngredientsList.get(position).getMeasure(),mIngredientsList.get(position).getQuantity()));
+        holder.mMeasuringUnitView.setText(mIngredientsList.get(position).getMeasure());
         holder.mItemTextView.setText(mIngredientsList.get(position).getIngredient());
+        holder.mQuantityTextView.setText(mIngredientsList.get(position).getQuantity()+"");
     }
 
-    private String getMeasureWithUnit(String measure, double quantity) {
-        return String.valueOf(quantity) + ' ' +
-                measure;
-    }
+
 
     @Override
     public int getItemCount() {
@@ -48,10 +46,12 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     protected class IngredientsViewHolder extends RecyclerView.ViewHolder{
         private TextView mItemTextView;
         private TextView mMeasuringUnitView;
+        private TextView mQuantityTextView;
         public IngredientsViewHolder(@NonNull View itemView) {
             super(itemView);
             mItemTextView = itemView.findViewById(R.id.item_text_view);
             mMeasuringUnitView = itemView.findViewById(R.id.mesure_text_view);
+            mQuantityTextView = itemView.findViewById(R.id.quantitiy);
         }
     }
 }
