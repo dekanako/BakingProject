@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.bakingproject">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:name=".di.ApplicationModule"
         android:allowBackup="true"
@@ -11,17 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.DetailedSteps.DetailedStepsActivity"></activity>
-        <activity android:name=".ui.hosting.HostingActivity" />
-        <activity android:name=".ui.dishList.DishListActivity">
+
+        <activity android:launchMode="singleTop" android:parentActivityName=".ui.hosting.HostingActivity" android:name=".ui.DetailedSteps.DetailedStepsActivity"></activity>
+
+        <activity android:launchMode="singleTop" android:parentActivityName=".ui.dishList.DishListActivity" android:name=".ui.hosting.HostingActivity" />
+
+        <activity android:launchMode="singleTop" android:name=".ui.dishList.DishListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+
+        </activity  >
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

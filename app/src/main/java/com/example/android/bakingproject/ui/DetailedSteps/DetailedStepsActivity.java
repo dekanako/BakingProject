@@ -45,7 +45,7 @@ public class DetailedStepsActivity extends AppCompatActivity {
         if (getIntent().hasExtra(EXTRACTED_JSON_KEY)){
             mSteps = new Gson().fromJson(getIntent().getStringExtra(EXTRACTED_JSON_KEY),new TypeToken<List<Steps>>(){}.getType());
         }
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mViewPager = findViewById(R.id.steps_pager);
 
         TabLayout tabLayout = findViewById(R.id.tabs);

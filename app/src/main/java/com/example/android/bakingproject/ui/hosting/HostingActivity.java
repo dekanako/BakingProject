@@ -35,6 +35,10 @@ public class HostingActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(new Gson().fromJson(mPassedJson, Dish.class).getName());
+        setSupportActionBar(toolbar);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
