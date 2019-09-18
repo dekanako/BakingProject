@@ -13,8 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.data.POJOS.Dish;
+import com.example.android.bakingproject.data.POJOS.Ingredients;
 import com.example.android.bakingproject.ui.hosting.IngredientsAdapter;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
 
 public class IngredientsListFragment extends Fragment {
     private static final String INGREDIENTS_KEY = "Ingredients_key";
@@ -28,7 +34,6 @@ public class IngredientsListFragment extends Fragment {
     }
 
     private RecyclerView mRecyclerView;
-    private IngredientsAdapter mAdapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,8 +42,10 @@ public class IngredientsListFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         String passedString = getArguments().getString(INGREDIENTS_KEY);
-        Dish mDish = new Gson().fromJson(passedString,Dish.class);
-        mRecyclerView.setAdapter(new IngredientsAdapter(mDish.getIngredients()));
+        Type listType = new TypeToken<List<Ingredients>>(){}.getType();
+
+        List<Ingredients> ingredients = new Gson().fromJson(passedString,listType);
+        mRecyclerView.setAdapter(new IngredientsAdapter(ingredients));
         return view;
     }
 

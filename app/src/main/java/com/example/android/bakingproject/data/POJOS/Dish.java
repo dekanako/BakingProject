@@ -7,7 +7,8 @@ public class Dish {
     private int id;
     private String name;
     private List<Ingredients>ingredients;
-    private List<Steps>steps;
+    //@SerializedName("steps")
+    private List<Steps> steps;
     private String image;
     private int serving;
 
@@ -47,8 +48,8 @@ public class Dish {
         return steps;
     }
 
-    public void setSteps(List<Steps> steps) {
-        this.steps = steps;
+    public void setSteps(List<Steps> Steps) {
+        this.steps = Steps;
     }
 
     public String getImage() {

@@ -38,8 +38,6 @@ public class DishesRepository {
             public void onResponse(@NotNull Call<List<Dish>> call, @NotNull Response<List<Dish>> response) {
 
                 mutableLiveData.setValue(response.body());
-                Timber.d("ADDRESS NETWORK" + this.hashCode());
-                Timber.d("RESPONSE %s", response.code());
             }
 
             @Override

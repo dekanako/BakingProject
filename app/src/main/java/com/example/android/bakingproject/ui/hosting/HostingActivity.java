@@ -12,10 +12,12 @@ import android.os.Bundle;
 
 import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.data.POJOS.Dish;
-import com.example.android.bakingproject.data.POJOS.Ingredients;
 import com.example.android.bakingproject.ui.ingredeintss.IngredientsListFragment;
+import com.example.android.bakingproject.ui.steps.StepsFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
+
+import timber.log.Timber;
 
 public class HostingActivity extends AppCompatActivity {
     private String mPassedJson;
@@ -54,9 +56,10 @@ public class HostingActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return IngredientsListFragment.newInstance(mPassedJson);
+                    return IngredientsListFragment.newInstance(extractedIngredients(extractDish()));
                 case 1:
-                    return IngredientsListFragment.newInstance(mPassedJson);
+                    Timber.d(extractedSteps(extractDish()));
+                    return StepsFragment.newInstance(extractedSteps(extractDish()),extractDish().getName());
                 default:
                     return null;
             }
@@ -70,7 +73,7 @@ public class HostingActivity extends AppCompatActivity {
                 case 0:
                     return "Ingredients";
                 case 1:
-                    return "Instructions";
+                    return "Steps";
                     default:
                         return null;
             }
@@ -79,4 +82,16 @@ public class HostingActivity extends AppCompatActivity {
 
     }
 
+    private Dish extractDish() {
+        Dish dish = new Gson().fromJson(mPassedJson,Dish.class);
+        return dish;
+    }
+
+    private static String extractedSteps(Dish dish){
+        return new Gson().toJson(dish.getSteps());
+    }
+
+    private static String extractedIngredients(Dish dish){
+        return new Gson().toJson(dish.getIngredients());
+    }
 }

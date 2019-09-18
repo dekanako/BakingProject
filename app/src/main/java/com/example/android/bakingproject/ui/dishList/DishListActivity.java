@@ -32,8 +32,9 @@ public class DishListActivity extends AppCompatActivity {
         dishListViewModel.getDishes()
                 .observe(this,dishes ->{
                     mRecyclerView.setAdapter(new DishListAdapter(dishes,this));
-
+                    Timber.d("size"+dishes.get(0).getIngredients()+"");
                 });
+
     }
 
     private void initTimberLogging() {

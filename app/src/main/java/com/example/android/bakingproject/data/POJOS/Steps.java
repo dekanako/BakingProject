@@ -1,8 +1,10 @@
 package com.example.android.bakingproject.data.POJOS;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.logging.StreamHandler;
 
-class Steps {
+public class Steps {
     private int id;
     private String shortDescription;
     private String description;

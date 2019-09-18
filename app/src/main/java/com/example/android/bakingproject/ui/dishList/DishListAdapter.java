@@ -81,6 +81,7 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
             Intent intent = new Intent(mContext, HostingActivity.class);
             Dish dish = mDishes.get(getAdapterPosition());
             intent.putExtra(Intent.EXTRA_INTENT,new Gson().toJson(dish));
+
             mContext.startActivity(intent);
         }
     }
