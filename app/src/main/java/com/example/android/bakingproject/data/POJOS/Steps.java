@@ -10,6 +10,9 @@ public class Steps {
     private String description;
     private String videoURL;
 
+    @SerializedName("thumbnailURL")
+    private String thumbnailURL;
+
     public int getId() {
         return id;
     }
@@ -40,5 +43,13 @@ public class Steps {
 
     public void setVideoURL(String videoURL) {
         this.videoURL = videoURL;
+    }
+
+    public String getThumbnailURL() {
+        return thumbnailURL;
+    }
+
+    public void setThumbnailURL(String thumbnailURL) {
+        this.thumbnailURL = thumbnailURL;
     }
 }
