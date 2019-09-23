@@ -13,7 +13,6 @@ import com.example.android.bakingproject.data.pojo.Ingredients;
 import com.example.android.bakingproject.ui.hosting.PrefUtils;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import timber.log.Timber;
