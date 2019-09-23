@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.bakingproject.R;
+import com.example.android.bakingproject.TypeUtil;
 import com.example.android.bakingproject.data.pojo.Steps;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -40,8 +41,7 @@ public class StepsFragment extends Fragment {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_instruction,container,false);
         mRecyclerView = view.findViewById(R.id.steps_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        Type type = new TypeToken<List<Steps>>(){}.getType();
-        List<Steps> Steps = new Gson().fromJson(getArguments().getString(STEPS_KEY),type);
+        List<Steps> Steps = new Gson().fromJson(getArguments().getString(STEPS_KEY), TypeUtil.LIST_STEPS_TYPE);
 
         mRecyclerView.setAdapter(new StepsAdapter(Steps,getContext(),getArguments().getString(DISH_NAME)));
 

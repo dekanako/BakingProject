@@ -7,7 +7,7 @@
     android:id="@+id/linearLayout"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageButton
         android:id="@+id/imageButton1"
@@ -16,11 +16,11 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/circle" >
+        android:src="@drawable/circle" >
     </ImageButton>
 
     <TextView
-        android:id="@+id/mesure_text_view"
+        android:id="@+id/mesure_text_view1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageButton1"
@@ -35,7 +35,7 @@
         tools:text="CUP" />
 
     <TextView
-        android:id="@+id/item_text_view"
+        android:id="@+id/item_text_view1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageButton1"
@@ -51,7 +51,7 @@
         tools:text="mozarilla" />
 
     <TextView
-        android:id="@+id/quantitiy"
+        android:id="@+id/quantitiy1"
         style="@style/Base.TextAppearance.AppCompat.Display4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

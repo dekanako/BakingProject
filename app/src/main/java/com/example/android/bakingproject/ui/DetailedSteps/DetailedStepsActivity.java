@@ -12,10 +12,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.android.bakingproject.R;
+import com.example.android.bakingproject.TypeUtil;
 import com.example.android.bakingproject.data.pojo.Steps;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class DetailedStepsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getIntent().getStringExtra(DISH_NAME_KEY));
 
         if (getIntent().hasExtra(EXTRACTED_JSON_KEY)){
-            mSteps = new Gson().fromJson(getIntent().getStringExtra(EXTRACTED_JSON_KEY),new TypeToken<List<Steps>>(){}.getType());
+            mSteps = new Gson().fromJson(getIntent().getStringExtra(EXTRACTED_JSON_KEY), TypeUtil.LIST_STEPS_TYPE);
         }
 
 

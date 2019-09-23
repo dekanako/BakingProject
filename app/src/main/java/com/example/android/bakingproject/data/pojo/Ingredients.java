@@ -5,6 +5,12 @@ public class Ingredients {
     private String measure;
     private String ingredient;
 
+    public Ingredients(double quantity, String measure, String ingredient) {
+        this.quantity = quantity;
+        this.measure = measure;
+        this.ingredient = ingredient;
+    }
+
     public double getQuantity() {
         return quantity;
     }

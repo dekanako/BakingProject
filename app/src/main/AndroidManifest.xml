@@ -38,6 +38,9 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/ingredints_widget_info" />
         </receiver>
+
+        <service android:name=".widget.ListRemoteViewService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

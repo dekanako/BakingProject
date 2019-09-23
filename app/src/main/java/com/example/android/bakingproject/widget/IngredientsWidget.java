@@ -1,8 +1,10 @@
 package com.example.android.bakingproject.widget;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.content.Intent;
 import android.widget.RemoteViews;
 
 import com.example.android.bakingproject.R;
@@ -17,20 +19,20 @@ public class IngredientsWidget extends AppWidgetProvider {
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-
-        CharSequence widgetText = PrefUtils.getPreservedIngredientInSharedPref(context);
-        // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.ingredints_widget);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
-        Timber.d("UPDATED");
-        // Instruct the widget manager to update the widget
+        // Set the GridWidgetService intent to act as the adapter for the GridView
+        Intent intent = new Intent(context, ListRemoteViewService.class);
+        views.setRemoteAdapter(R.id.list_widget, intent);
+
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.list_widget);
         appWidgetManager.updateAppWidget(appWidgetId, views);
+
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
-        for (int appWidgetId : appWidgetIds) {
+        for (int appWidgetId : appWidgetIds){
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
     }
