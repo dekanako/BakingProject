@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.data.POJOS.Steps;
+import com.example.android.bakingproject.data.pojo.Steps;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.data.POJOS.Ingredients;
+import com.example.android.bakingproject.data.pojo.Ingredients;
 
 import java.util.List;
 

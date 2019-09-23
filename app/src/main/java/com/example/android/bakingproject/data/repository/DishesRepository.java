@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.android.bakingproject.BakingApi;
-import com.example.android.bakingproject.data.POJOS.Dish;
+import com.example.android.bakingproject.data.pojo.Dish;
 
 
 import org.jetbrains.annotations.NotNull;

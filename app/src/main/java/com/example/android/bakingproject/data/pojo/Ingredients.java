@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.data.POJOS;
+package com.example.android.bakingproject.data.pojo;
 
 public class Ingredients {
     private double quantity;

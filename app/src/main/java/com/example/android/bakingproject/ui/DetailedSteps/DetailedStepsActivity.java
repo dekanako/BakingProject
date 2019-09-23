@@ -12,7 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.data.POJOS.Steps;
+import com.example.android.bakingproject.data.pojo.Steps;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -37,6 +37,7 @@ public class DetailedStepsActivity extends AppCompatActivity {
         return intent;
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,20 +45,26 @@ public class DetailedStepsActivity extends AppCompatActivity {
 
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setTitle(getIntent().getStringExtra(DISH_NAME_KEY));
+
         if (getIntent().hasExtra(EXTRACTED_JSON_KEY)){
             mSteps = new Gson().fromJson(getIntent().getStringExtra(EXTRACTED_JSON_KEY),new TypeToken<List<Steps>>(){}.getType());
         }
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mViewPager = findViewById(R.id.steps_pager);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         initAdapter(fragmentManager);
 
         mViewPager.setAdapter(mPagerAdapter);
+
+        //takes you to the selected Step which selected in the HostingActivity
+        mViewPager.setCurrentItem(getIntent().getIntExtra(STEP_POSITION_KEY,0));
 
     }
 
@@ -67,14 +74,10 @@ public class DetailedStepsActivity extends AppCompatActivity {
         mPagerAdapter = new FragmentStatePagerAdapter(fragmentManager) {
 
             @Override
-            public Fragment getItem(int position) {
-                return DetailedStepsFragment.newInstance(new Gson().toJson(mSteps.get(position)));
-            }
+            public Fragment getItem(int position) { return DetailedStepsFragment.newInstance(new Gson().toJson(mSteps.get(position))); }
 
             @Override
-            public int getCount() {
-                return mSteps.size();
-            }
+            public int getCount() { return mSteps.size(); }
 
             @Nullable
             @Override

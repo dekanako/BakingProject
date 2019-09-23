@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.data.POJOS.Steps;
+import com.example.android.bakingproject.data.pojo.Steps;
 import com.example.android.bakingproject.ui.DetailedSteps.DetailedStepsActivity;
 import com.google.gson.Gson;
 
@@ -53,7 +53,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHol
             stepTitle = itemView.findViewById(R.id.short_instruction);
 
             stepTitle.setOnClickListener(v -> {
-              Intent intent = DetailedStepsActivity.newIntent(mContext,getAdapterPosition(),new Gson().toJson(mSteps),mDishName);
+                Intent intent = DetailedStepsActivity.newIntent(mContext,getAdapterPosition(),new Gson().toJson(mSteps),mDishName);
 
               mContext.startActivity(intent);
             });

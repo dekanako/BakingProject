@@ -1,6 +1,6 @@
 package com.example.android.bakingproject;
 
-import com.example.android.bakingproject.data.POJOS.Dish;
+import com.example.android.bakingproject.data.pojo.Dish;
 
 import java.util.List;
 

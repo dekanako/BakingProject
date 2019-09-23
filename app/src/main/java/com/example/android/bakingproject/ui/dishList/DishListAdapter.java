@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.data.POJOS.Dish;
+import com.example.android.bakingproject.data.pojo.Dish;
 import com.example.android.bakingproject.ui.hosting.HostingActivity;
 import com.google.gson.Gson;
 

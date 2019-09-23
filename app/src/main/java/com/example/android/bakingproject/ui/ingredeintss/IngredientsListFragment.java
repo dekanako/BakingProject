@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.data.POJOS.Dish;
-import com.example.android.bakingproject.data.POJOS.Ingredients;
+import com.example.android.bakingproject.data.pojo.Ingredients;
 import com.example.android.bakingproject.ui.hosting.IngredientsAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

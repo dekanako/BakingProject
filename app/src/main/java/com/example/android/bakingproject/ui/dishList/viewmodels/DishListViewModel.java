@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 
-import com.example.android.bakingproject.data.POJOS.Dish;
+import com.example.android.bakingproject.data.pojo.Dish;
 import com.example.android.bakingproject.data.repository.DishesRepository;
 import com.example.android.bakingproject.di.ApplicationModule;
 

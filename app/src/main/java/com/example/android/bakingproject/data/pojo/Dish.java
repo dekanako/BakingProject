@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.data.POJOS;
+package com.example.android.bakingproject.data.pojo;
 
 import java.util.List;
 
