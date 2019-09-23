@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.ui.hosting;
+package com.example.android.bakingproject.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.widget.RemoteViews;
 
 import com.example.android.bakingproject.R;
+import com.example.android.bakingproject.ui.hosting.PrefUtils;
 
 import timber.log.Timber;
 

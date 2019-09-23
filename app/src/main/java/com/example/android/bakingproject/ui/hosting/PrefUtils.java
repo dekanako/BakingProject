@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import timber.log.Timber;
+import com.example.android.bakingproject.widget.IngredientsWidget;
 
-class PrefUtils {
+public final class PrefUtils {
 
     private static final String INGREDIENTS_KEY_SHARED_PREF = "shared_pref_key";
 
