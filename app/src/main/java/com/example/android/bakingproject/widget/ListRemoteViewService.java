@@ -2,7 +2,6 @@ package com.example.android.bakingproject.widget;
 
 import android.content.Context;
 import android.content.Intent;
-import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -10,7 +9,7 @@ import com.example.android.bakingproject.AppUtil;
 import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.TypeUtil;
 import com.example.android.bakingproject.data.pojo.Ingredients;
-import com.example.android.bakingproject.ui.hosting.PrefUtils;
+import com.example.android.bakingproject.PrefUtils;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -40,7 +39,7 @@ public class ListRemoteViewService extends RemoteViewsService {
 
             String s = PrefUtils.getPreservedIngredientInSharedPref(mContext);
             if (s!=null) {
-             mIngredients = new Gson().fromJson(s, TypeUtil.LIST_INGREINTS_TYPE);
+             mIngredients = new Gson().fromJson(s, TypeUtil.LIST_INGREDIENTS_TYPE);
 
                 Timber.d(mIngredients.size()+"");
             }

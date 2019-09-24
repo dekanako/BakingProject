@@ -10,7 +10,7 @@ import java.util.List;
 public final class TypeUtil {
     private TypeUtil() {}
 
-    public static final Type LIST_INGREINTS_TYPE = new TypeToken<List<Ingredients>>(){}.getType();
+    public static final Type LIST_INGREDIENTS_TYPE = new TypeToken<List<Ingredients>>(){}.getType();
     public static final Type LIST_STEPS_TYPE = new TypeToken<List<Steps>>(){}.getType();
     public static final Type LIST_DISHES_TYPE = new TypeToken<List<Ingredients>>(){}.getType();
 

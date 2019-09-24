@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.ui.hosting;
+package com.example.android.bakingproject;
 
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;

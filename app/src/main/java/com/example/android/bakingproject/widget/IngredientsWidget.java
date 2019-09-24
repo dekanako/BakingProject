@@ -1,6 +1,5 @@
 package com.example.android.bakingproject.widget;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
@@ -8,9 +7,6 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.ui.hosting.PrefUtils;
-
-import timber.log.Timber;
 
 /**
  * Implementation of App Widget functionality.

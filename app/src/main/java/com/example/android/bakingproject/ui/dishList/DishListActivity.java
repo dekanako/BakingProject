@@ -17,22 +17,22 @@ import com.example.android.bakingproject.ui.dishList.viewmodels.DishListViewMode
 import timber.log.Timber;
 
 public class DishListActivity extends AppCompatActivity {
-    private static final String TAG = "DishListActivity";
-    private RecyclerView mRecyclerView;
 
+    private RecyclerView mRecyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_dish);
+
+        //planting Timber on the DEBUG variant of the app that means when we are deploying our app out Timber logs won't work
         initTimberLogging();
+
         mRecyclerView = findViewById(R.id.dish_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         DishListViewModel dishListViewModel = ViewModelProviders.of(this).get(DishListViewModel.class);
         dishListViewModel.getDishes()
-                .observe(this,dishes ->{
-                    mRecyclerView.setAdapter(new DishListAdapter(dishes,this));
-                });
+                .observe(this,dishes -> mRecyclerView.setAdapter(new DishListAdapter(dishes,this)));
 
     }
 

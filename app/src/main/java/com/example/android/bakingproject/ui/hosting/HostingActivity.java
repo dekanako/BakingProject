@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.android.bakingproject.PrefUtils;
 import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.data.pojo.Dish;
 import com.example.android.bakingproject.ui.ingredeintss.IngredientsListFragment;
@@ -19,10 +20,9 @@ import com.example.android.bakingproject.ui.steps.StepsFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 
-import timber.log.Timber;
-
 public class HostingActivity extends AppCompatActivity {
     private String mPassedJson;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

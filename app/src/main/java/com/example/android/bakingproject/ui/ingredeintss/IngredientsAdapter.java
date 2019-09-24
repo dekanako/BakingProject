@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.ui.hosting;
+package com.example.android.bakingproject.ui.ingredeintss;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.android.bakingproject.AppUtil;
 import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.data.pojo.Ingredients;
 
@@ -32,7 +33,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     public void onBindViewHolder(@NonNull IngredientsViewHolder holder, int position) {
 
         holder.mMeasuringUnitView.setText(mIngredientsList.get(position).getMeasure());
-        holder.mItemTextView.setText(mIngredientsList.get(position).getIngredient());
+        holder.mItemTextView.setText(AppUtil.capitalizeFirstLetter(mIngredientsList.get(position).getIngredient()));
         holder.mQuantityTextView.setText(mIngredientsList.get(position).getQuantity()+"");
     }
 

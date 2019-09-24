@@ -41,13 +41,10 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
 
     @Override
     public void onBindViewHolder(@NonNull DishListViewHolder holder, int position) {
-        Timber.d(mDishes.get(2).getImage());
         holder.mDishNameTextView.setText(getModifiedText(mDishes.get(position).getName()));
 
         Glide.with(holder.itemView).load(mDishes.get(position).getImage())
                 .into(holder.mDishImageView);
-
-
 
     }
 
