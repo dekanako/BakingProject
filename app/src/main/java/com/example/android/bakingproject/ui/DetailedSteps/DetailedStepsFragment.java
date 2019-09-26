@@ -67,26 +67,29 @@ public class DetailedStepsFragment extends Fragment  {
             ViewGroup viewGroup = view.findViewById(R.id.steps_group_view);
             viewGroup.removeView(view.findViewById(R.id.player_view));
 
-            View decorTextView = view.findViewById(R.id.included_text);
-            decorTextView.setVisibility(View.VISIBLE);
+        initDecorView(view);
 
-            TextView firstLetterTextView = view.findViewById(R.id.first_letter);
-            TextView firstWordTextView = view.findViewById(R.id.first_word);
-            TextView secondWordTextView = view.findViewById(R.id.second_word);
+    }
 
-            boolean isItACombinedWord = mDishTilte.contains(" ");
-            firstLetterTextView.setText(String.valueOf(mDishTilte.charAt(0)));
+    private void initDecorView(View view) {
+        View decorTextView = view.findViewById(R.id.included_text);
+        decorTextView.setVisibility(View.VISIBLE);
 
-            if (isItACombinedWord){
-                int spaceIndex = mDishTilte.indexOf(' ');
-                firstWordTextView.setText(mDishTilte.substring(1,spaceIndex));
-                secondWordTextView.setText(mDishTilte.substring(spaceIndex));
-            }else {
-                firstWordTextView.setText(mDishTilte.substring(1));
-            }
+        TextView firstLetterTextView = view.findViewById(R.id.first_letter);
+        TextView firstWordTextView = view.findViewById(R.id.first_word);
+        TextView secondWordTextView = view.findViewById(R.id.second_word);
 
+        boolean isItACombinedWord = mDishTilte.contains(" ");
+        firstLetterTextView.setText(String.valueOf(mDishTilte.charAt(0)));
 
-
+        if (isItACombinedWord){
+            int spaceIndex = mDishTilte.indexOf(' ');
+            firstWordTextView.setText(mDishTilte.substring(1,spaceIndex));
+            secondWordTextView.setText(mDishTilte.substring(spaceIndex));
+        }else {
+            firstWordTextView.setText(mDishTilte.substring(1));
+            secondWordTextView.setVisibility(View.GONE);
+        }
     }
 
     private boolean isVideoUrlNull() {

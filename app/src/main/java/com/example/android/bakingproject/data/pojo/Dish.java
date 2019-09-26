@@ -1,5 +1,7 @@
 package com.example.android.bakingproject.data.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Dish {
@@ -10,6 +12,7 @@ public class Dish {
     //@SerializedName("steps")
     private List<Steps> steps;
     private String image;
+    @SerializedName("servings")
     private int serving;
 
     public int getServing() {

@@ -22,6 +22,7 @@ public class DishListActivity extends AppCompatActivity  {
 
     private RecyclerView mRecyclerView;
     private ProgressBar mBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

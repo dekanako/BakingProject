@@ -20,6 +20,8 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
+import timber.log.Timber;
+
 public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishListViewHolder> {
     private List<Dish> mDishes;
     private Context mContext;
@@ -43,6 +45,8 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
         Glide.with(holder.itemView).load(mDishes.get(position).getImage())
                 .into(holder.mDishImageView);
 
+        holder.mServingTextView.setText(String.valueOf(mDishes.get(position).getServing()));
+
     }
 
     private String getModifiedText(String dishName) {
@@ -61,12 +65,13 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
     protected class DishListViewHolder extends RecyclerView.ViewHolder  {
         private ImageView mDishImageView;
         private TextView mDishNameTextView;
+        private TextView mServingTextView;
 
         private DishListViewHolder(@NonNull View itemView) {
             super(itemView);
             mDishImageView = itemView.findViewById(R.id.food_view);
             mDishNameTextView = itemView.findViewById(R.id.first_letter);
-
+            mServingTextView = itemView.findViewById(R.id.serving_text_view);
             itemView.setOnClickListener(this::startIngredientActivity);
 
         }
