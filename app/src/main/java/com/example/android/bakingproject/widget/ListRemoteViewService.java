@@ -38,10 +38,12 @@ public class ListRemoteViewService extends RemoteViewsService {
             Timber.d("DATA SET CHANGED");
 
             String s = PrefUtils.getPreservedIngredientInSharedPref(mContext);
-            if (s!=null) {
+            if (s!=null&&!s.equals("")) {
              mIngredients = new Gson().fromJson(s, TypeUtil.LIST_INGREDIENTS_TYPE);
 
-                Timber.d(mIngredients.size()+"");
+            }else {
+                //TODO fix the null ingredient problem
+                Timber.d("NULL NULL");
             }
 
         }
@@ -50,7 +52,10 @@ public class ListRemoteViewService extends RemoteViewsService {
         public void onDestroy() { }
 
         @Override
-        public int getCount() { return mIngredients.size(); }
+        public int getCount() {
+
+            return mIngredients.size();
+        }
 
         @Override
         public RemoteViews getViewAt(int position) {

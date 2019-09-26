@@ -24,21 +24,27 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.gson.Gson;
 
+import timber.log.Timber;
+
 public class DetailedStepsFragment extends Fragment  {
     private static final String ONE_PASSED_STEP_KEY = "passed_step_key";
+    private static final String DISH_NAME_KEY = "dish_name";
     private PlayerView mPlayerView;
     private SimpleExoPlayer mPlayer;
     private ImageView mThumbnailImageView;
     private TextView mDescription;
-    private TextView mTitle;
+    private TextView mShortDescription;
     private Steps mSteps;
-
+    private String mDishTilte;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.fragment_steps_detail,container,false);
+
         mSteps = new Gson().fromJson(getArguments().getString(ONE_PASSED_STEP_KEY),Steps.class);
+        mDishTilte = getArguments().getString(DISH_NAME_KEY);
+
         initAndSetConstViews(v);
         defineUsingVideoViewOrImageView(v);
 
@@ -60,6 +66,27 @@ public class DetailedStepsFragment extends Fragment  {
 
             ViewGroup viewGroup = view.findViewById(R.id.steps_group_view);
             viewGroup.removeView(view.findViewById(R.id.player_view));
+
+            View decorTextView = view.findViewById(R.id.included_text);
+            decorTextView.setVisibility(View.VISIBLE);
+
+            TextView firstLetterTextView = view.findViewById(R.id.first_letter);
+            TextView firstWordTextView = view.findViewById(R.id.first_word);
+            TextView secondWordTextView = view.findViewById(R.id.second_word);
+
+            boolean isItACombinedWord = mDishTilte.contains(" ");
+            firstLetterTextView.setText(String.valueOf(mDishTilte.charAt(0)));
+
+            if (isItACombinedWord){
+                int spaceIndex = mDishTilte.indexOf(' ');
+                firstWordTextView.setText(mDishTilte.substring(1,spaceIndex));
+                secondWordTextView.setText(mDishTilte.substring(spaceIndex));
+            }else {
+                firstWordTextView.setText(mDishTilte.substring(1));
+            }
+
+
+
     }
 
     private boolean isVideoUrlNull() {
@@ -120,15 +147,16 @@ public class DetailedStepsFragment extends Fragment  {
     //those are the view that happen to appear in every scenario
     private void initAndSetConstViews(View v) {
         mDescription = v.findViewById(R.id.description);
-        mTitle = v.findViewById(R.id.short_description_text);
-        mTitle.setText(mSteps.getShortDescription());
+        mShortDescription = v.findViewById(R.id.short_description_text);
+        mShortDescription.setText(mSteps.getShortDescription());
         mDescription.setText(mSteps.getDescription());
     }
 
-    public static DetailedStepsFragment newInstance(String passedJsonStep) {
+    public static DetailedStepsFragment newInstance(String passedJsonStep,String passedDishName) {
 
         Bundle args = new Bundle();
         args.putString(ONE_PASSED_STEP_KEY,passedJsonStep);
+        args.putString(DISH_NAME_KEY,passedDishName);
         DetailedStepsFragment fragment = new DetailedStepsFragment();
         fragment.setArguments(args);
         return fragment;

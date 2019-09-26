@@ -45,7 +45,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHol
 
     @Override
     public void onBindViewHolder(@NonNull StepsViewHolder holder, int position) {
-        holder.stepTitle.setText(mSteps.get(position).getShortDescription());
+        holder.mTextView.setText(mSteps.get(position).getShortDescription());
     }
 
     @Override
@@ -54,14 +54,17 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHol
     }
 
     public class StepsViewHolder extends RecyclerView.ViewHolder{
-        private TextView stepTitle;
+        private View mView;
+        private TextView mTextView;
         public StepsViewHolder(@NonNull View itemView) {
             super(itemView);
-            stepTitle = itemView.findViewById(R.id.short_instruction);
+            itemView.setOnClickListener((v -> Timber.d("CLICK") ));
+            mView = itemView.findViewById(R.id.steps_constraint_layout);
+            mTextView = itemView.findViewById(R.id.short_instruction);
 
             if (!TabletUtil.isItATabletLayout)
             {
-                stepTitle.setOnClickListener(v -> {
+                mView.setOnClickListener(v -> {
                     Intent intent = DetailedStepsActivity.newIntent(mContext,getAdapterPosition(),new Gson().toJson(mSteps),mDishName);
 
                     mContext.startActivity(intent);
@@ -69,7 +72,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsViewHol
                 });
 
             } else {
-                stepTitle.setOnClickListener(v -> {
+                mView.setOnClickListener(v -> {
                     mTabletClickingListener.onClick(getAdapterPosition());
                     Timber.d("TABLET");
                 });

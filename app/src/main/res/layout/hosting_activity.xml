@@ -8,8 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.hosting.HostingActivity">
 
-    <include layout="@layout/include_toolbar"
-        ></include>
+    <include layout="@layout/include_toolbar"></include>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"

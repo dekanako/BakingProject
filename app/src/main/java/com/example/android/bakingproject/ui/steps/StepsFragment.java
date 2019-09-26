@@ -15,12 +15,8 @@ import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.TypeUtil;
 import com.example.android.bakingproject.data.pojo.Steps;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.util.List;
-
-import timber.log.Timber;
 
 public class StepsFragment extends Fragment {
     private static final String STEPS_KEY = "Steps_fragment";
@@ -56,7 +52,7 @@ public class StepsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_instruction,container,false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.steps_fragment,container,false);
         mRecyclerView = view.findViewById(R.id.steps_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         List<Steps> Steps = new Gson().fromJson(getArguments().getString(STEPS_KEY), TypeUtil.LIST_STEPS_TYPE);

@@ -37,15 +37,17 @@ public class DetailedStepsActivity extends AppCompatActivity {
         intent.putExtra(DISH_NAME_KEY,dishName);
         return intent;
     }
-
+    private String mDishTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_steps);
 
+        mDishTitle = getIntent().getStringExtra(DISH_NAME_KEY);
+
         setSupportActionBar(findViewById(R.id.toolbar));
-        getSupportActionBar().setTitle(getIntent().getStringExtra(DISH_NAME_KEY));
+        getSupportActionBar().setTitle(mDishTitle);
 
         if (getIntent().hasExtra(EXTRACTED_JSON_KEY)){
             mSteps = new Gson().fromJson(getIntent().getStringExtra(EXTRACTED_JSON_KEY), TypeUtil.LIST_STEPS_TYPE);
@@ -75,7 +77,7 @@ public class DetailedStepsActivity extends AppCompatActivity {
         mPagerAdapter = new FragmentStatePagerAdapter(fragmentManager) {
 
             @Override
-            public Fragment getItem(int position) { return DetailedStepsFragment.newInstance(new Gson().toJson(mSteps.get(position))); }
+            public Fragment getItem(int position) { return DetailedStepsFragment.newInstance(new Gson().toJson(mSteps.get(position)),mDishTitle); }
 
             @Override
             public int getCount() { return mSteps.size(); }

@@ -129,7 +129,7 @@ public class HostingActivity extends AppCompatActivity implements StepsAdapter.T
 
         //using replace for the sake of not cashing the previous fragments in the stack
         fragmentManager.beginTransaction()
-                .replace(R.id.detailes_steps_container,DetailedStepsFragment.newInstance(stepInJson))
+                .replace(R.id.detailes_steps_container,DetailedStepsFragment.newInstance(stepInJson,extractDish().getName()))
                 .commit();
     }
 

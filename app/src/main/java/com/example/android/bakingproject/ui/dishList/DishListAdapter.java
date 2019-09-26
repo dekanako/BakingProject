@@ -20,9 +20,6 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-
-import timber.log.Timber;
-
 public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishListViewHolder> {
     private List<Dish> mDishes;
     private Context mContext;
@@ -68,7 +65,7 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
         private DishListViewHolder(@NonNull View itemView) {
             super(itemView);
             mDishImageView = itemView.findViewById(R.id.food_view);
-            mDishNameTextView = itemView.findViewById(R.id.textView);
+            mDishNameTextView = itemView.findViewById(R.id.first_letter);
 
             itemView.setOnClickListener(this::startIngredientActivity);
 
