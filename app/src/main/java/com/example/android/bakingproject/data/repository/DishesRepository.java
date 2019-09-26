@@ -21,6 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import timber.log.Timber;
 
+//annotating it with Singleton tells dagger that we need one instance of this class
 @Singleton
 public class DishesRepository {
     private BakingApi mBakingApi;
@@ -36,9 +37,7 @@ public class DishesRepository {
         mBakingApi.getDishes().enqueue(new Callback<List<Dish>>() {
             @Override
             public void onResponse(@NotNull Call<List<Dish>> call, @NotNull Response<List<Dish>> response) {
-
                 mutableLiveData.setValue(response.body());
-
             }
 
             @Override
@@ -46,5 +45,6 @@ public class DishesRepository {
         });
         return mutableLiveData;
     }
+
 
 }

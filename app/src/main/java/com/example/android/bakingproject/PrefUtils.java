@@ -11,7 +11,8 @@ import com.example.android.bakingproject.widget.IngredientsWidget;
 
 public final class PrefUtils {
 
-    private static final String INGREDIENTS_KEY_SHARED_PREF = "shared_pref_key";
+    private static final String INGREDIENTS_KEY_SHARED_PREF = "ingredient_shared_pref_key";
+    private static final String DISH_TITLE_KEY_SHARED_PREF = "dish_title_shared_pref_key";
 
     /**
      * listeners are used here to avoid updating the widget for the same ingredient
@@ -20,14 +21,15 @@ public final class PrefUtils {
      * @param context used to access the shared pref
      * @param passedIngredientsInJson passing the ingredients as a json
      */
-    public static void preserveIngredientsInSharedPref(Context context, String passedIngredientsInJson){
+    public static void preserveIngredientsInSharedPref(Context context, String passedIngredientsInJson,String dishTitle){
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 
-        sharedPreferences.registerOnSharedPreferenceChangeListener((sharedPreferences1, key) -> {
-            updateWidget(context);
-        });
+        sharedPreferences.registerOnSharedPreferenceChangeListener((sharedPreferences1, key) ->
+                updateWidget(context));
+        
         sharedPreferences.edit().putString(INGREDIENTS_KEY_SHARED_PREF,passedIngredientsInJson).apply();
+        sharedPreferences.edit().putString(DISH_TITLE_KEY_SHARED_PREF,dishTitle).apply();
     }
 
     //used to sendBroadcast to the widget to update itself
@@ -45,6 +47,11 @@ public final class PrefUtils {
     public static String getPreservedIngredientInSharedPref(Context context){
 
         return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(PrefUtils.INGREDIENTS_KEY_SHARED_PREF,null);
+                .getString(INGREDIENTS_KEY_SHARED_PREF,null);
+    }
+    public static String getPreservedDishTitleInSharedPref(Context context){
+
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(DISH_TITLE_KEY_SHARED_PREF,null);
     }
 }

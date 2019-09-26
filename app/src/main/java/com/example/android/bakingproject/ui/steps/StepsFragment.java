@@ -20,9 +20,12 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import timber.log.Timber;
+
 public class StepsFragment extends Fragment {
     private static final String STEPS_KEY = "Steps_fragment";
     private static final String DISH_NAME = "dish_name";
+    private StepsAdapter.TabletClickingListener mTabletClickingListener;
 
     public static StepsFragment newInstance(String passedJSONOfSteps,String dishName) {
 
@@ -34,6 +37,21 @@ public class StepsFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+    //when its a tablet variant to pass the listener reference
+    public static StepsFragment newInstance(String passedJSONOfSteps, String dishName, StepsAdapter.TabletClickingListener listener) {
+
+        Bundle args = new Bundle();
+        args.putString(STEPS_KEY,passedJSONOfSteps);
+        args.putString(DISH_NAME,dishName);
+
+        StepsFragment fragment = new StepsFragment();
+        fragment.setTabletClickingListener(listener);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
     private RecyclerView mRecyclerView;
     @Nullable
     @Override
@@ -42,9 +60,12 @@ public class StepsFragment extends Fragment {
         mRecyclerView = view.findViewById(R.id.steps_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         List<Steps> Steps = new Gson().fromJson(getArguments().getString(STEPS_KEY), TypeUtil.LIST_STEPS_TYPE);
-
-        mRecyclerView.setAdapter(new StepsAdapter(Steps,getContext(),getArguments().getString(DISH_NAME)));
+        mRecyclerView.setAdapter(new StepsAdapter(Steps,getContext(),getArguments().getString(DISH_NAME),mTabletClickingListener));
 
         return view;
+    }
+
+    public void setTabletClickingListener(StepsAdapter.TabletClickingListener tabletClickingListener) {
+        mTabletClickingListener = tabletClickingListener;
     }
 }

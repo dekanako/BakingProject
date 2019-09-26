@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
+import com.example.android.bakingproject.PrefUtils;
 import com.example.android.bakingproject.R;
 
 /**
@@ -19,6 +20,7 @@ public class IngredientsWidget extends AppWidgetProvider {
         // Set the GridWidgetService intent to act as the adapter for the GridView
         Intent intent = new Intent(context, ListRemoteViewService.class);
         views.setRemoteAdapter(R.id.list_widget, intent);
+        views.setTextViewText(R.id.dish_title, PrefUtils.getPreservedDishTitleInSharedPref(context));
 
         appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.list_widget);
         appWidgetManager.updateAppWidget(appWidgetId, views);
