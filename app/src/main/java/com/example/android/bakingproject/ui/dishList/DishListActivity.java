@@ -1,14 +1,19 @@
 package com.example.android.bakingproject.ui.dishList;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
 
+import com.example.android.bakingproject.AppUtil;
 import com.example.android.bakingproject.BuildConfig;
 import com.example.android.bakingproject.R;
 
@@ -22,6 +27,7 @@ public class DishListActivity extends AppCompatActivity  {
 
     private RecyclerView mRecyclerView;
     private ProgressBar mBar;
+    private DishListViewModel mDishListViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +42,29 @@ public class DishListActivity extends AppCompatActivity  {
         mRecyclerView = findViewById(R.id.dish_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        DishListViewModel dishListViewModel = ViewModelProviders.of(this).get(DishListViewModel.class);
-        dishListViewModel.getDishes()
-                .observe(this,dishes -> {
-                    mRecyclerView.setVisibility(View.VISIBLE);
-                    //using the observer as an indicator to shut down the progress bar
-                    mBar.setVisibility(View.INVISIBLE);
-                    mRecyclerView.setAdapter(new DishListAdapter(dishes, this));
-                });
 
+        if (AppUtil.isConnectedToNetwork(this)){
+            mDishListViewModel = ViewModelProviders.of(this).get(DishListViewModel.class);
+            getDishesListFromViewModel();
+        }else {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setMessage("there is no connection please connect and try again")
+                    .setTitle("Problems while connecting")
+                    .setPositiveButton("ok", (dialog, which) -> getDishesListFromViewModel());
+            alert.show();
+        }
+    }
+
+    private void getDishesListFromViewModel() {
+        mDishListViewModel = ViewModelProviders.of(this).get(DishListViewModel.class);
+
+        mDishListViewModel.getDishes()
+            .observe(this,dishes -> {
+                mRecyclerView.setVisibility(View.VISIBLE);
+                //using the observer as an indicator to shut down the progress bar
+                mBar.setVisibility(View.INVISIBLE);
+                mRecyclerView.setAdapter(new DishListAdapter(dishes, this));
+            });
     }
 
     private void initTimberLogging() {

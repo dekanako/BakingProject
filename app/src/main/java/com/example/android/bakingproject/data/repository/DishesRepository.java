@@ -41,7 +41,9 @@ public class DishesRepository {
             }
 
             @Override
-            public void onFailure(Call<List<Dish>> call, Throwable t) { Timber.e(t); }
+            public void onFailure(Call<List<Dish>> call, Throwable t) { Timber.e(t);
+            Timber.d("FAILL FAILL");
+            }
         });
         return mutableLiveData;
     }

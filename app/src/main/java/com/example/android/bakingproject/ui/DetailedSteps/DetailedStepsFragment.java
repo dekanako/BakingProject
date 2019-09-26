@@ -81,7 +81,7 @@ public class DetailedStepsFragment extends Fragment  {
 
         boolean isItACombinedWord = mDishTilte.contains(" ");
         firstLetterTextView.setText(String.valueOf(mDishTilte.charAt(0)));
-
+        view.findViewById(R.id.chef_hat_image).setVisibility(View.VISIBLE);
         if (isItACombinedWord){
             int spaceIndex = mDishTilte.indexOf(' ');
             firstWordTextView.setText(mDishTilte.substring(1,spaceIndex));
