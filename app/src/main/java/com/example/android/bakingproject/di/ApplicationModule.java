@@ -23,4 +23,5 @@ public class ApplicationModule extends Application {
     public AppComponent getAppComponent() {
         return mAppComponent;
     }
+
 }

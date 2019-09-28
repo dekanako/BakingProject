@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/first_letter"
+        android:id="@+id/dish_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
@@ -25,10 +25,10 @@
         android:fontFamily="serif"
         android:textColor="@android:color/black"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="@+id/first_letter"
+        app:layout_constraintBottom_toBottomOf="@+id/dish_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/first_letter"
+        app:layout_constraintStart_toEndOf="@+id/dish_name"
         tools:text="utella" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:textColor="@android:color/black"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="@+id/first_word"
-        app:layout_constraintStart_toStartOf="@+id/first_letter"
+        app:layout_constraintStart_toStartOf="@+id/dish_name"
         app:layout_constraintTop_toBottomOf="@+id/first_word"
         tools:text="Pie" />
 

@@ -65,12 +65,18 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
 
-
+    //Espresso
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+    androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.2.0'
+
+    //we need those libraries at debugging time because we are subscribing to the idle resources in the Main code
+    debugImplementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
+    debugImplementation 'androidx.test.espresso.idling:idling-concurrent:3.2.0'
+
 
 
 }

@@ -24,8 +24,6 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.gson.Gson;
 
-import timber.log.Timber;
-
 public class DetailedStepsFragment extends Fragment  {
     private static final String ONE_PASSED_STEP_KEY = "passed_step_key";
     private static final String DISH_NAME_KEY = "dish_name";
@@ -75,7 +73,7 @@ public class DetailedStepsFragment extends Fragment  {
         View decorTextView = view.findViewById(R.id.included_text);
         decorTextView.setVisibility(View.VISIBLE);
 
-        TextView firstLetterTextView = view.findViewById(R.id.first_letter);
+        TextView firstLetterTextView = view.findViewById(R.id.dish_name);
         TextView firstWordTextView = view.findViewById(R.id.first_word);
         TextView secondWordTextView = view.findViewById(R.id.second_word);
 

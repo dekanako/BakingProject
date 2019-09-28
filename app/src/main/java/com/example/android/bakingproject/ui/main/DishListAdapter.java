@@ -69,7 +69,7 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
         private DishListViewHolder(@NonNull View itemView) {
             super(itemView);
             mDishImageView = itemView.findViewById(R.id.food_view);
-            mDishNameTextView = itemView.findViewById(R.id.first_letter);
+            mDishNameTextView = itemView.findViewById(R.id.dish_name);
             mServingTextView = itemView.findViewById(R.id.serving_text_view);
             itemView.setOnClickListener(this::startIngredientActivity);
 
