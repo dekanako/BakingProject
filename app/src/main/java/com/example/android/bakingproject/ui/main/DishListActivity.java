@@ -34,7 +34,7 @@ public class DishListActivity extends AppCompatActivity  {
 
         mBar = findViewById(R.id.progress_bar);
 
-        //planting Timber on the DEBUG variant of the app that means when we are deploying our app out Timber logs won't work
+        //planting Timber on the DEBUG variant of the app, that means when we are deploying our app out Timber logs won't work
         initTimberLogging();
 
         mRecyclerView = findViewById(R.id.dish_list);
