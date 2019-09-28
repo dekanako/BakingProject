@@ -8,14 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.TabletUtil;
+import com.example.android.bakingproject.utilites.TabletUtil;
 import com.example.android.bakingproject.data.pojo.Steps;
 import com.example.android.bakingproject.ui.DetailedSteps.DetailedStepsActivity;
-import com.example.android.bakingproject.ui.DetailedSteps.DetailedStepsFragment;
 import com.google.gson.Gson;
 
 

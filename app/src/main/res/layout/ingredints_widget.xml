@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:id="@+id/linear"
     android:padding="@dimen/widget_margin">
 
     <TextView
@@ -25,5 +26,14 @@
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
+
+
+        <ImageView
+            android:id="@+id/empty_view"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_vector_chef_hat"/>
+
 
 </LinearLayout>

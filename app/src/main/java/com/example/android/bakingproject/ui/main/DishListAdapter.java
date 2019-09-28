@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.ui.dishList;
+package com.example.android.bakingproject.ui.main;
 
 
 import android.content.Context;
@@ -19,8 +19,6 @@ import com.example.android.bakingproject.ui.hosting.HostingActivity;
 import com.google.gson.Gson;
 
 import java.util.List;
-
-import timber.log.Timber;
 
 public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishListViewHolder> {
     private List<Dish> mDishes;
@@ -43,6 +41,7 @@ public class DishListAdapter extends RecyclerView.Adapter<DishListAdapter.DishLi
         holder.mDishNameTextView.setText(getModifiedText(mDishes.get(position).getName()));
 
         Glide.with(holder.itemView).load(mDishes.get(position).getImage())
+                .placeholder(R.drawable.ic_placeee)
                 .into(holder.mDishImageView);
 
         holder.mServingTextView.setText(String.valueOf(mDishes.get(position).getServing()));

@@ -9,16 +9,15 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.android.bakingproject.PrefUtils;
+import com.example.android.bakingproject.utilites.PrefUtils;
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.TabletUtil;
+import com.example.android.bakingproject.utilites.TabletUtil;
 import com.example.android.bakingproject.data.pojo.Dish;
 import com.example.android.bakingproject.data.pojo.Steps;
 import com.example.android.bakingproject.ui.DetailedSteps.DetailedStepsFragment;
@@ -47,6 +46,7 @@ public class HostingActivity extends AppCompatActivity implements StepsAdapter.T
         //setting up viewpager
         ViewPager viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+
         //set the tab layout as an identifier for each tab
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -97,14 +97,22 @@ public class HostingActivity extends AppCompatActivity implements StepsAdapter.T
 
     //im using the title of the item as an indicator to know in which state the MenuItem is
     //calling invalidateOptionMenu -> onPrepareOptionsMenu
+
+    /**
+     *
+     * @param item using the item title as an indicator to know the  "button wich pins the widget in which stat"
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.pin_ingredient:
                 if (item.getTitle().equals(getString(R.string.unpinString))){
+                    //if the title was unpin ingredient.... that mean the ingredeient is already pinned on the widget
                     PrefUtils.preserveIngredientsInSharedPref(this,null,null);
                     invalidateOptionsMenu();
                 }else if (item.getTitle().equals(getString(R.string.pinit))){
+                    //if the title was deploy on.... that means there is no ingredient on the widget
                     PrefUtils.preserveIngredientsInSharedPref(this,extractedIngredients(extractDish()),extractDish().getName());
                     invalidateOptionsMenu();
                 }
@@ -133,7 +141,7 @@ public class HostingActivity extends AppCompatActivity implements StepsAdapter.T
                 .commit();
     }
 
-    public  class MyPagerAdapter extends FragmentPagerAdapter {
+    public class MyPagerAdapter extends FragmentPagerAdapter {
         private  int NUM_ITEMS = 2;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {

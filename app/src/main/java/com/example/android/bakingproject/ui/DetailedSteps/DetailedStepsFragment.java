@@ -139,7 +139,7 @@ public class DetailedStepsFragment extends Fragment  {
                 .createMediaSource(Uri.parse(mSteps.getVideoURL()));
 
         mPlayer.prepare(mediaSource);
-        mPlayer.setPlayWhenReady(true);
+        mPlayer.setPlayWhenReady(false);
 
     }
 

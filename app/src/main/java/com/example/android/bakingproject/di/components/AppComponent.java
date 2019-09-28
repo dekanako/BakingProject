@@ -2,8 +2,7 @@ package com.example.android.bakingproject.di.components;
 
 import com.example.android.bakingproject.di.ApplicationModule;
 import com.example.android.bakingproject.di.modules.NetworkModules;
-import com.example.android.bakingproject.ui.dishList.DishListActivity;
-import com.example.android.bakingproject.ui.dishList.viewmodels.DishListViewModel;
+import com.example.android.bakingproject.ui.main.viewmodels.DishListViewModel;
 
 import javax.inject.Singleton;
 

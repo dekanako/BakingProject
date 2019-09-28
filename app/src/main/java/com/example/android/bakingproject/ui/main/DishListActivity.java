@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.ui.dishList;
+package com.example.android.bakingproject.ui.main;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,18 +6,16 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
 
-import com.example.android.bakingproject.AppUtil;
+import com.example.android.bakingproject.utilites.AppUtil;
 import com.example.android.bakingproject.BuildConfig;
 import com.example.android.bakingproject.R;
 
-import com.example.android.bakingproject.ui.dishList.viewmodels.DishListViewModel;
+import com.example.android.bakingproject.ui.main.viewmodels.DishListViewModel;
 
 
 

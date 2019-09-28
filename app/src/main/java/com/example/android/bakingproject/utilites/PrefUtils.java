@@ -1,4 +1,4 @@
-package com.example.android.bakingproject;
+package com.example.android.bakingproject.utilites;
 
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.example.android.bakingproject.widget.IngredientsWidget;
+import com.example.android.bakingproject.ui.widget.IngredientsWidget;
 
 public final class PrefUtils {
 

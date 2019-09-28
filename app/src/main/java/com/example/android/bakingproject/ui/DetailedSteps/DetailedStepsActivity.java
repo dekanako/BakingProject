@@ -12,7 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.TypeUtil;
+import com.example.android.bakingproject.utilites.TypeUtil;
 import com.example.android.bakingproject.data.pojo.Steps;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;

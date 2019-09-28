@@ -1,4 +1,4 @@
-package com.example.android.bakingproject;
+package com.example.android.bakingproject.utilites;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

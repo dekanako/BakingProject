@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android.bakingproject.AppUtil;
+import com.example.android.bakingproject.utilites.AppUtil;
 import com.example.android.bakingproject.R;
 import com.example.android.bakingproject.data.pojo.Ingredients;
 

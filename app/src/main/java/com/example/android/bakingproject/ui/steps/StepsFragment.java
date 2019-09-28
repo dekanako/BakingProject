@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.TypeUtil;
+import com.example.android.bakingproject.utilites.TypeUtil;
 import com.example.android.bakingproject.data.pojo.Steps;
 import com.google.gson.Gson;
 

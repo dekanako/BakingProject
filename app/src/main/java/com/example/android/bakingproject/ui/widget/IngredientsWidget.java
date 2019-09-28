@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.widget;
+package com.example.android.bakingproject.ui.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-import com.example.android.bakingproject.PrefUtils;
+import com.example.android.bakingproject.utilites.PrefUtils;
 import com.example.android.bakingproject.R;
 
 /**
@@ -21,10 +21,9 @@ public class IngredientsWidget extends AppWidgetProvider {
         Intent intent = new Intent(context, ListRemoteViewService.class);
         views.setRemoteAdapter(R.id.list_widget, intent);
         views.setTextViewText(R.id.dish_title, PrefUtils.getPreservedDishTitleInSharedPref(context));
-
+        views.setEmptyView(R.id.list_widget,R.id.empty_view);
         appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.list_widget);
         appWidgetManager.updateAppWidget(appWidgetId, views);
-
     }
 
     @Override

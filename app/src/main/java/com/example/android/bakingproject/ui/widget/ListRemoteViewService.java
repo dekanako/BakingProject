@@ -1,17 +1,18 @@
-package com.example.android.bakingproject.widget;
+package com.example.android.bakingproject.ui.widget;
 
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.example.android.bakingproject.AppUtil;
+import com.example.android.bakingproject.utilites.AppUtil;
 import com.example.android.bakingproject.R;
-import com.example.android.bakingproject.TypeUtil;
+import com.example.android.bakingproject.utilites.TypeUtil;
 import com.example.android.bakingproject.data.pojo.Ingredients;
-import com.example.android.bakingproject.PrefUtils;
+import com.example.android.bakingproject.utilites.PrefUtils;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import timber.log.Timber;
@@ -42,8 +43,8 @@ public class ListRemoteViewService extends RemoteViewsService {
              mIngredients = new Gson().fromJson(s, TypeUtil.LIST_INGREDIENTS_TYPE);
 
             }else {
-                //TODO fix the null ingredient problem
                 Timber.d("NULL NULL");
+                mIngredients = new ArrayList<>();
             }
 
         }
@@ -55,6 +56,7 @@ public class ListRemoteViewService extends RemoteViewsService {
         public int getCount() {
 
             return mIngredients.size();
+
         }
 
         @Override

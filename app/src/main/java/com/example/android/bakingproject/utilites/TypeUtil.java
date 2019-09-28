@@ -1,4 +1,4 @@
-package com.example.android.bakingproject;
+package com.example.android.bakingproject.utilites;
 
 import com.example.android.bakingproject.data.pojo.Ingredients;
 import com.example.android.bakingproject.data.pojo.Steps;

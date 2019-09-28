@@ -1,4 +1,4 @@
-package com.example.android.bakingproject.ui.dishList.viewmodels;
+package com.example.android.bakingproject.ui.main.viewmodels;
 
 import android.app.Application;
 
