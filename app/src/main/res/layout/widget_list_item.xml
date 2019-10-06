@@ -16,8 +16,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/circle" >
-    </ImageButton>
+        android:src="@drawable/circle"></ImageButton>
 
     <TextView
         android:id="@+id/mesure_text_view1"
@@ -36,13 +35,13 @@
 
     <TextView
         android:id="@+id/item_text_view1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="342dp"
+        android:layout_height="52dp"
         android:layout_alignTop="@+id/imageButton1"
         android:layout_alignBottom="@+id/imageButton1"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="-17dp"
         android:layout_toEndOf="@+id/imageButton1"
         android:fontFamily="sans-serif"
         android:textAlignment="textStart"
@@ -53,23 +52,24 @@
     <TextView
         android:id="@+id/quantitiy1"
         style="@style/Base.TextAppearance.AppCompat.Display4"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/imageButton1"
         android:layout_alignTop="@+id/imageButton1"
         android:layout_alignEnd="@+id/imageButton1"
         android:layout_alignBottom="@+id/imageButton1"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="2dp"
+        android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton1"
         app:layout_constraintEnd_toEndOf="@+id/imageButton1"
         app:layout_constraintStart_toStartOf="@+id/imageButton1"
         app:layout_constraintTop_toTopOf="@+id/imageButton1"
-        tools:text="5" />
+        tools:text="523" />
 
 </RelativeLayout>

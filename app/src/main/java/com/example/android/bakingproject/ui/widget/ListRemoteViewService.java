@@ -67,8 +67,8 @@ public class ListRemoteViewService extends RemoteViewsService {
 
             remoteViews.setTextViewText(R.id.mesure_text_view1,mIngredients.get(position).getMeasure());
             remoteViews.setTextViewText(R.id.item_text_view1, AppUtil.capitalizeFirstLetter(mIngredients.get(position).getIngredient()));
-            remoteViews.setTextViewText(R.id.quantitiy1,Double.toString(mIngredients.get(position).getQuantity()));
-
+            remoteViews.setTextViewText(R.id.quantitiy1,String.valueOf(mIngredients.get(position).getQuantity()));
+            Timber.d(String.valueOf(mIngredients.get(position)));
             //TODO fix the after points number
             return remoteViews;
         }

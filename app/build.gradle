@@ -71,7 +71,8 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
-    androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
+    androidTestImplementation 'androidx.test.ext:truth:1.2.0'
 
     //we need those libraries at debugging time because we are subscribing to the idle resources in the Main code
     debugImplementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
